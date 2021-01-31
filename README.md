@@ -1,0 +1,2 @@
+# cleanNetEaseMailAdsScript
+去除网易邮箱广告的脚本
