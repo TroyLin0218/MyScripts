@@ -1,12 +1,14 @@
 // ==UserScript==
-// @name                关闭百度百科中的‘秒懂百科’视频以及右侧的‘V百科’
+// @name                隐藏百度百科和百度经验中的'秒懂百科'视频
 // @namespace           https://greasyfork.org/
 // @version             1.1.0
-// @description         关闭百度百科页面中的‘秒懂百科’视频以及右侧的‘V百科’;使用比较low的方式,带佬莫笑我 -.-;感谢AC的大力支持@AC
+// @description         隐藏百度百科和百度经验中的'秒懂百科'视频;使用比较low的方式,带佬莫笑我 -.-;感谢AC的大力支持@AC
 // @author              XingTianyu
 // @match               *://baike.baidu.com/item/*
+// @match               *://jingyan.baidu.com/article/*
 // @icon                https://baike.baidu.com/favicon.ico
 // @grant               none
+// @note                2021.02.20-V2.0.0 新增隐藏百度经验页面中的‘秒懂百科’
 // @note                2021.02.08-V1.1.0 使用AC教我的给元素添加'display:none'属性的方式来实现视觉'去除'，修复人物百科页面无法'去除'的问题
 // @note                2021.01.31-V1.0.0 简单粗暴的删除页面元素
 // @license             MIT
@@ -86,13 +88,13 @@
      * 打印脚本信息
      */
     function printInfo() {
-        console.log("%c[星田雨-“关闭百度百科中的'秒懂百科'视频以及右侧的'V百科'等”] %c感谢使用，不相关的元素已隐藏～", "font-weight:bold;color:darkorange", "color:0");
+        console.log("%c[星田雨-“隐藏百度百科和百度经验中的'秒懂百科'视频”] %c感谢使用，不相关的元素已隐藏～", "font-weight:bold;color:darkorange", "color:0");
     }
 
 
     //************************************************************************************* */
-    //秒懂百科、v百科、xx、yy、'下载APP'、分享按钮、'TA说'右侧小卡片、'TA说'下面的div、人物百科的秒懂百科视频所在div的className
-    var classNameArray = ['before-content', 'lemmaWgt-promotion-vbaike', 'lemmaWgt-promotion-slide', 'topA', 'appdownload', 'share-list', 'tashuo-right', 'tashuo-bottom', 'poster-middle'];
+    //秒懂百科、v百科、xx、yy、'下载APP'、分享按钮、'TA说'右侧小卡片、'TA说'下面的div、人物百科的秒懂百科视频所在div的className；百度经验中的秒懂百科视频所在的className、秒懂百科下方的说明文字、百度经验右侧的滚动框、百度经验导航栏右侧的‘写经验 领红包’
+    var classNameArray = ['before-content', 'lemmaWgt-promotion-vbaike', 'lemmaWgt-promotion-slide', 'topA', 'appdownload', 'share-list', 'tashuo-right', 'tashuo-bottom', 'poster-middle','feeds-video-box','feeds-video-one-view','wgt-cms-banner','fresh-share-exp-e'];
     // timerToRemove(classNameArray);
     safeWaitFunc(classNameArray, removeByLoopArray);
 
